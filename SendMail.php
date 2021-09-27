@@ -16,6 +16,8 @@
     $honbun = "お名前:".$name."様\r\n";
     $honbun .= "本文：\r\n";
     $honbun .= $message;
-    $headers = "From: ".$mail;
+    $headers = "From:".mb_encode_mimeheader($name) ."<".$mail.">";
     mb_send_mail($to, $subject, $honbun, $headers);
+
+    echo "送信が完了しました。"
 ?>
